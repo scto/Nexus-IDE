@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.silva.nexuside.databinding.FragmentSettingsBinding
-import com.silva.nexuside.ui.fragments.settings.SettingsMainFragment;
 import com.silva.nexuside.ui.base.BaseFragment
 
 class SettingsFragment() : BaseFragment() {
