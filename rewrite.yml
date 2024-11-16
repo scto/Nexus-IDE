@@ -1,0 +1,95 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.github.scto.ChangePackage
+displayName: Change package name
+recipeList:
+# Java Files
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: com.silva.nexuside
+      newPackageName: com.github.scto.nexuside
+      recursive: null
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: com.silva.nexuside.resources
+      newPackageName: com.github.scto.nexuside.resources
+      recursive: null
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: com.silva.util
+      newPackageName: com.github.scto.util
+      recursive: null
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: com.silva.editor
+      newPackageName: com.github.scto.editor
+      recursive: null
+      
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.github.scto.ChangeXmlFiles
+displayName: Change xml files
+recipeList:
+# Xml Files
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: "Preference"
+      attributeName: "android:fragment"
+      oldValue: "com.silva.nexuside.ui.fragments.settings.SettingsGeneralFragment"
+      newValue: "com.github.scto.nexuside.ui.fragments.settings.SettingsGeneralFragment"
+      fileMatcher: "**/prefs_main.xml"
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: "Preference"
+      attributeName: "android:fragment"
+      oldValue: "com.silva.nexuside.ui.fragments.settings.SettingsEditorFragment"
+      newValue: "com.github.scto.nexuside.ui.fragments.settings.SettingsEditorFragment"
+      fileMatcher: "**/prefs_main.xml"
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: "Preference"
+      attributeName: "android:fragment"
+      oldValue: "com.silva.nexuside.ui.fragments.settings.SettingsCompilerFragment"
+      newValue: "com.github.scto.nexuside.ui.fragments.settings.SettingsCompilerFragment"
+      fileMatcher: "**/prefs_main.xml"
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: "Preference"
+      attributeName: "android:fragment"
+      oldValue: "com.silva.nexuside.ui.fragments.settings.SettingsPluginsFragment"
+      newValue: "com.github.scto.nexuside.ui.fragments.settings.SettingsPluginsFragment"
+      fileMatcher: "**/prefs_main.xml"
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: "Preference"
+      attributeName: "android:fragment"
+      oldValue: "com.silva.nexuside.ui.fragments.settings.SettingsGitFragment"
+      newValue: "com.github.scto.nexuside.ui.fragments.settings.SettingsGitFragment"
+      fileMatcher: "**/prefs_main.xml"
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: "Preference"
+      attributeName: "android:fragment"
+      oldValue: "com.silva.nexuside.ui.fragments.settings.SettingsAboutFragment"
+      newValue: "com.github.scto.nexuside.ui.fragments.settings.SettingsAboutFragment"
+      fileMatcher: "**/prefs_main.xml"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.github.scto.ChangeGradleFiles
+applicability:
+  singleSource:
+    - org.openrewrite.FindSourceFiles:
+        filePattern: "**/build.gradle.kts"
+recipeList:
+  - org.openrewrite.text.FindAndReplace:
+      find: com.silva.nexuside
+      replace: com.github.scto.nexuside
+  - org.openrewrite.text.FindAndReplace:
+      find: com.silva.nexuside.resources
+      replace: com.github.scto.nexuside.resources
+  - org.openrewrite.text.FindAndReplace:
+      find: com.silva.util
+      replace: com.github.scto.util
+  - org.openrewrite.text.FindAndReplace:
+      find: com.silva.editor
+      replace: com.github.scto.editor
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.github.scto.UpgradeAndroidGradlePluginVersion
+displayName: Upgrade Android Gradle Plugin (AGP) version example
+recipeList:
+  - org.openrewrite.android.UpgradeAndroidGradlePluginVersion:
+      agpVersion: 8.6.x
+      gradleWrapperVersion: (8.7, 9]
