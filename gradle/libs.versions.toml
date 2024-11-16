@@ -4,6 +4,7 @@ kotlin = "2.0.21"
 editor = "0.23.4-3895689-SNAPSHOT"
 glide = "4.12.0"
 koin = "4.0.0"
+rewrite = "6.26.0"
 
 [libraries]
 
@@ -46,3 +47,4 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 materialthemebuilder = { id = "dev.rikka.tools.materialthemebuilder", version = "1.5.1" }
+openrewrite = { id = "org.openrewrite.rewrite", version.ref = "rewrite" }

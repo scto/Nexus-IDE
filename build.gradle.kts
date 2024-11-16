@@ -4,7 +4,7 @@ plugins {
      alias(libs.plugins.kotlin.android) apply false
      alias(libs.plugins.kotlin.jvm) apply false
      alias(libs.plugins.materialthemebuilder) apply false
-     id("org.openrewrite.rewrite") version "6.26.0"
+     alias(libs.plugins.openrewrite) apply true
 }
 
 dependencies {
@@ -18,7 +18,7 @@ dependencies {
 rewrite {
     activeRecipe(
 //        "com.github.scto.ChangeGradleFiles",
-//        "com.github.scto.ChangeXmlFiles",
+        "com.github.scto.ChangeXmlFiles",
 //        "com.github.scto.ChangePackage",
 //        "com.github.scto.UpgradeAndroidGradlePluginVersion",
 //
